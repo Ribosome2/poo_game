@@ -28430,6 +28430,7 @@ void Game::DrawTitleScreen( int x,int y )
 
 void Game::ComposeFrame()
 {
+	
 	if( !isStarted )
 	{
 		DrawTitleScreen( 325,211 );
@@ -28448,4 +28449,5 @@ void Game::ComposeFrame()
 		}
 		meter.Draw( gfx );
 	}
+	gfx.DrawCircle(100, 200, 50, Colors::Gray);
 }

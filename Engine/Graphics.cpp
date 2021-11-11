@@ -25,7 +25,7 @@
 #include <assert.h>
 #include <string>
 #include <array>
-
+#include <math.h>
 // Ignore the intellisense error "cannot open source file" for .shh files.
 // They will be created during the build sequence before the preprocessor runs.
 namespace FramebufferShaders
@@ -332,6 +332,21 @@ void Graphics::DrawRect( int x0,int y0,int x1,int y1,Color c )
 		for( int x = x0; x < x1; ++x )
 		{
 			PutPixel( x,y,c );
+		}
+	}
+}
+
+void Graphics::DrawCircle(int centerX, int centerY, int radius, Color c)
+{
+	for (int x = centerX - radius; x < centerX + radius; x++)
+	{
+		for (int  y = centerY-radius; y < centerY+radius; y++)
+		{
+			float dist = sqrt(pow(x - centerX, 2) + pow(y - centerY,2));
+			if (dist < radius)
+			{
+				PutPixel(x, y, c);
+			}
 		}
 	}
 }
