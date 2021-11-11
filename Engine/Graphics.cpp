@@ -338,9 +338,9 @@ void Graphics::DrawRect( int x0,int y0,int x1,int y1,Color c )
 void Graphics::DrawCircle(int centerX, int centerY, int radius, Color c)
 {
 	const float radiusMagnitude = radius * radius;
-	for (int x = centerX - radius; x < centerX + radius; x++)
+	for (int x = centerX - radius; x < centerX + radius+1; x++)
 	{
-		for (int  y = centerY-radius; y < centerY+radius; y++)
+		for (int  y = centerY-radius; y < centerY+radius+1; y++)
 		{
 			auto const xDiff = x - centerX;
 			auto const yDiff = y - centerY;

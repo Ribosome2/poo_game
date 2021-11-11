@@ -28449,5 +28449,5 @@ void Game::ComposeFrame()
 		}
 		meter.Draw( gfx );
 	}
-	gfx.DrawCircle(100, 200, 50, Colors::Gray);
+	gfx.DrawCircle(200, 300, 200, Colors::Gray);
 }
