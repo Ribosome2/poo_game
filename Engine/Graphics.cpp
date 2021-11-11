@@ -335,16 +335,19 @@ void Graphics::DrawRect( int x0,int y0,int x1,int y1,Color c )
 	}
 }
 
-void Graphics::DrawCircle(int centerX, int centerY, int radius, Color c)
+void Graphics::DrawCircle(int centerX, int centerY, int radius, Color c, 
+	int innnerRadius)
 {
 	const float radiusMagnitude = radius * radius;
+	const float innerRadiusMagnitude = innnerRadius * innnerRadius;
 	for (int x = centerX - radius; x < centerX + radius+1; x++)
 	{
 		for (int  y = centerY-radius; y < centerY+radius+1; y++)
 		{
 			auto const xDiff = x - centerX;
 			auto const yDiff = y - centerY;
-			if (xDiff*xDiff +  yDiff*yDiff < radiusMagnitude)
+			auto const mag = xDiff * xDiff + yDiff * yDiff;
+			if ( mag< radiusMagnitude && mag>=innerRadiusMagnitude)
 			{
 				PutPixel(x, y, c);
 			}
